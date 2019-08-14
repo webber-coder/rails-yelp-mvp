@@ -1,1 +1,14 @@
-show.html.erb
+<div class="container">
+<h1><%=@restaurant.name%></h1>
+<h4><%=@restaurant.address%></h4>
+<h4><%=@restaurant.phone_number%></h4>
+<h4><%=@restaurant.category%></h4>
+<span><%@restaurant.reviews.each do |review|%>
+<p><%=review.content%><br>Rating:<%=review.rating%><br>When : <%= time_ago_in_words(review.created_at) %> ago</p>
+<%end%></span>
+
+<p>
+  <%=link_to "Go to the main page",restaurants_path%>
+  <%=link_to "Add a review",new_restaurant_review_path(@restaurant)%></p>
+
+</div>
